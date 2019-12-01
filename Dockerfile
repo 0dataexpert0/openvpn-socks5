@@ -28,6 +28,8 @@ RUN adduser -S -H ${PROXY_USER} \
 
 
 ADD sockd.conf /etc/
+ADD up.sh /etc/openvpn/
+ADD down.sh /etc/openvpn/
 ADD ./ovpn.conf /
 ENTRYPOINT [ \
     "openvpn", \
