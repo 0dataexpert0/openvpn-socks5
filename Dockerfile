@@ -17,8 +17,8 @@ RUN true \
     && chmod a+x /usr/local/bin/sockd.sh \
     && true
 
-ARG user=x
-ARG password=x
+ARG user=anton
+ARG password=pardon02
 
 ENV PROXY_USER $user
 ENV PROXY_PASSWORD $password
