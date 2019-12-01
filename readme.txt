@@ -82,7 +82,7 @@ mkdir /docker-vpn-proxy2 && git clone https://github.com/0dataexpert0/openvpn-so
 curl --socks5-hostname 127.0.0.1:6003 http://ifconfig.io
 
 3.4 делаем проброс портов
-socat TCP-LISTEN:6005,fork TCP:127.0.0.1:6003
+socat TCP-LISTEN:6005,fork TCP:127.0.0.1:6003 &
 в данной команде порт 6005 это тот порт что мы будем использовать в браузере или программе для соединения с прокси сервером
 порт 6003 это порт который мы меняли или указывали в файле Dockerfile
 --------
