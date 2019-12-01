@@ -20,7 +20,7 @@ pardon02 - пароль к прокси
 Установка и настройка:
 1. Установка Docker на сервер
 подключаемся к ssh и выполняем на сервере от пользователя root
-apt-get update && apt-get install curl git -y && curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+apt-get update && apt-get install curl git socat -y && curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 команду можно просто вставить в консоль она все сделаем
 проверяем установился ли докер в консоли
 docker -v
@@ -76,6 +76,24 @@ mkdir /docker-vpn-proxy2 && git clone https://github.com/0dataexpert0/openvpn-so
 запуск контейнера командой
 ./start vpn1.ovpn &
 ---
-check proxy from console:
+проверяем что прокси работает
+должен отобразиться айпи впн севрера
 
 curl --socks5-hostname 127.0.0.1:6003 http://ifconfig.io
+
+3.4 делаем проброс портов
+socat TCP-LISTEN:6005,fork TCP:127.0.0.1:6003
+в данной команде порт 6005 это тот порт что мы будем использовать в браузере или программе для соединения с прокси сервером
+порт 6003 это порт который мы меняли или указывали в файле Dockerfile
+--------
+ Если openvpn конфиг у нас с авторизацией
+ нам надо будет изменить наш файл vpn1.ovpn
+ изменить или добавить строчку строчку с "auth-user-pass"
+ на 
+auth-user-pass pass.txt
+ в файл pass.txt
+ добавить 
+ user/password
+ например
+ anton/pardon02
+ 
