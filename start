@@ -1,6 +1,8 @@
 #!/bin/bash
 chmod +x up.sh
 chmod +x down.sh
+docker rmi vpn-proxy1
+docker rm vpn-proxy1 --force
 docker build -t vpn-proxy1 .
 exec docker run \
     --name=vpn-proxy1 \
