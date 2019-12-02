@@ -1,6 +1,7 @@
 #!/bin/bash
 docker build -t vpn-proxy1 .
 exec docker run \
+    --name=vpn-proxy1 \
     --rm \
     --tty \
     --interactive \
