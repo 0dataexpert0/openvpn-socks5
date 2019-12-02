@@ -32,6 +32,8 @@ ADD up.sh /etc/openvpn/
 ADD down.sh /etc/openvpn/
 ADD pass.txt /etc/openvpn/
 ADD ./ovpn.conf /
+CMD chmod +x up.sh
+CMD chmod +x down.sh
 ENTRYPOINT [ \
     "openvpn", \
     "--up", "/usr/local/bin/sockd.sh", \
