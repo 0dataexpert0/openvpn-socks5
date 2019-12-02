@@ -9,5 +9,5 @@ exec docker run \
     --interactive \
     --device=/dev/net/tun \
     --cap-add=NET_ADMIN \
-    --publish 0.0.0.0:6001:1080 \
+    --publish 127.0.0.1:6001:1080 \
     vpn-proxy1:${TAG:-latest}
