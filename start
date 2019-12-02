@@ -8,5 +8,4 @@ exec docker run \
     --device=/dev/net/tun \
     --cap-add=NET_ADMIN \
     --publish 0.0.0.0:6001:1080 \
-#    --volume "$(realpath "$1"):/ovpn.conf:ro" \
     vpn-proxy1:${TAG:-latest}
