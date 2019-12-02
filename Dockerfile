@@ -11,6 +11,7 @@ FROM alpine:edge
 ADD sockd.sh /usr/local/bin/
 
 RUN true \
+    && echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
     && apk add --update-cache dante-server openvpn iptables nano curl net-tools \
     && rm -rf /var/cache/apk/* \
     && chmod a+x /usr/local/bin/sockd.sh \
